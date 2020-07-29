@@ -1,4 +1,4 @@
-import { flatListToTrees } from "../src/tree";
+import { flatListToTrees } from "../src";
 
 test("flatListToTree can convert flat list to tree data structure", () => {
     type Item = {
@@ -43,13 +43,13 @@ test("flatListToTree can convert flat list to tree data structure", () => {
         },
     ];
 
-    const tree = flatListToTrees(data, {
+    const trees = flatListToTrees(data, {
         getId: (item) => item?.id,
         getParentId: (item) => item?.parent?.id,
     });
 
     // Find the parent node with children
-    const hNode = tree.find((node) => node.node.uri === "parent");
+    const hNode = trees.find((node) => node.node.uri === "parent");
     expect(hNode).not.toBeFalsy();
     expect(hNode?.children).toHaveLength(2);
 
@@ -65,7 +65,7 @@ test("flatListToTree can convert flat list to tree data structure", () => {
     );
 
     // Find the parent node with no children
-    const noChildren = tree.find((node) => node.node.uri === "no-children");
+    const noChildren = trees.find((node) => node.node.uri === "no-children");
     expect(noChildren).not.toBeFalsy();
     expect(noChildren?.children).toHaveLength(0);
 });
