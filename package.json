@@ -2,7 +2,8 @@
   "name": "@valu/tree",
   "version": "1.0.0",
   "description": "Turn list of items to trees",
-  "main": "index.js",
+  "main": "dist/tree.js",
+  "typings": "dist/tree.d.ts",
   "scripts": {
     "test": "jest",
     "build": "tsc --noEmit false --outDir dist",
