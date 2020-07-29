@@ -1,6 +1,6 @@
 {
   "name": "@valu/trees",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Javascript/TypeScript utility to turn WordPress like flat list (child -> parent relation) of hierarchical items to a tree data structure",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
