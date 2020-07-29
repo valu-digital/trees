@@ -72,3 +72,51 @@ test("flatListToTree can convert flat list to tree data structure", () => {
     // @ts-expect-error not any
     const typecheck: number = trees[0].children[0].node.uri;
 });
+
+test("readme", () => {
+    const list = [
+        {
+            name: "Parent",
+            id: 1,
+            parent: 0,
+        },
+        {
+            name: "Child 1",
+            id: 2,
+            parent: 1,
+        },
+        {
+            name: "Child 2",
+            id: 3,
+            parent: 1,
+        },
+        {
+            name: "Grandchild",
+            id: 4,
+            parent: 3,
+        },
+    ];
+
+    const trees = flatListToTrees(list, {
+        getId: (item) => item.id,
+        getParentId: (item) => item.parent,
+    });
+
+    expect(trees).toEqual([
+        {
+            node: { name: "Parent", id: 1, parent: 0 },
+            children: [
+                { node: { name: "Child 1", id: 2, parent: 1 }, children: [] },
+                {
+                    node: { name: "Child 2", id: 3, parent: 1 },
+                    children: [
+                        {
+                            node: { name: "Grandchild", id: 4, parent: 3 },
+                            children: [],
+                        },
+                    ],
+                },
+            ],
+        },
+    ]);
+});
