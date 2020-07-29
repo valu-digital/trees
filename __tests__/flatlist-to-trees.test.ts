@@ -68,4 +68,7 @@ test("flatListToTree can convert flat list to tree data structure", () => {
     const noChildren = trees.find((node) => node.node.uri === "no-children");
     expect(noChildren).not.toBeFalsy();
     expect(noChildren?.children).toHaveLength(0);
+
+    // @ts-expect-error not any
+    const typecheck: number = trees[0].children[0].node.uri;
 });
