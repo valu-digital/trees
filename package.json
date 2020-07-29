@@ -1,19 +1,24 @@
 {
   "name": "@valu/tree",
   "version": "1.0.0",
-  "description": "",
+  "description": "Turn list of items to trees",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc --noEmit false --outDir dist",
     "clean": "rm -rf dist",
+    "prettier": "prettier --write \"__tests__/*.ts\" \"src/*.ts\"",
     "prepublishOnly": "npm run clean && npm run test && npm run build"
   },
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "author": "Esa-Matti Suuronen",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^26.0.7",
     "jest": "^26.1.0",
+    "prettier": "^2.0.5",
     "ts-jest": "^26.1.4",
     "typescript": "^3.9.7"
   }
