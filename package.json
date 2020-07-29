@@ -6,7 +6,7 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "tsc --noEmit false --outDir dist",
+    "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "prettier": "prettier --write \"__tests__/*.ts\" \"src/*.ts\"",
     "prepublishOnly": "npm run clean && npm run test && npm run build"
