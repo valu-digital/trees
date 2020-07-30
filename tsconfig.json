@@ -2,7 +2,7 @@
   "include": ["src", "__tests__"],
   "compilerOptions": {
     "target": "es5",
-    "module": "esnext",
+    "module": "CommonJS",
     "lib": ["dom", "esnext"],
     "declaration": true,
     "sourceMap": true,
